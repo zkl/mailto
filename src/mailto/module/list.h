@@ -60,8 +60,8 @@ linked_list_node_t * linked_list_remove(linked_list_t * list,
 	linked_list_node_t * node);
 
 /* ²åÈë½Úµã */
-linked_list_node_t * linked_list_insert(linked_list_t * list, linked_list_node_t * node, 
-	void * data);
+linked_list_node_t * linked_list_insert(linked_list_t * list, 
+	linked_list_node_t * node, void * data);
 
 /******************************************************************************/
 

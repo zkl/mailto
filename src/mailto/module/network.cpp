@@ -86,11 +86,25 @@ net_socket_t * network_connect(network_t * network, const char * host, int port)
 	return net_socket;
 }
 
+/*******************************************************************************
+** 版  本： v 1.1     
+** 功  能： 获取当前网络数据队列中数据的大小
+** 入  参： 
+** 返回值：                             
+** 备  注： 
+*******************************************************************************/
 int net_socket_size(net_socket_t * socket)
 {
 	return queue_size(&socket->rdque);
 }
 
+/*******************************************************************************
+** 版  本： v 1.1     
+** 功  能： 获取数据队列首地址
+** 入  参： 
+** 返回值：                             
+** 备  注： 
+*******************************************************************************/
 char * net_socket_data(net_socket_t * socket)
 {
 	return queue_data(&socket->rdque);
@@ -178,14 +192,31 @@ void net_socket_close(net_socket_t * socket)
 	free(socket);
 }
 
+/*******************************************************************************
+** 版  本： v 1.1     
+** 功  能： 绑定用户数据
+** 入  参： 
+** 返回值：                             
+** 备  注： 
+*******************************************************************************/
 void net_socket_set_user_data(net_socket_t * socket, void * d)
 {
 	socket->user_data = d;
 }
+
+
+/*******************************************************************************
+** 版  本： v 1.1     
+** 功  能： 获取用户数据
+** 入  参： 
+** 返回值：                             
+** 备  注： 
+*******************************************************************************/
 void * net_socket_get_user_data(net_socket_t * socket)
 {
 	return socket->user_data;
 }
+
 
 /*******************************************************************************
 ** 版  本： v 1.1     
@@ -241,21 +272,30 @@ int network_procmsg(network_t * network)
 		}
 
 		net_socket_write(socket, 0, 0);
-		if(network->writeed_callback)
+		if(network->writeed_callback && net_socket_size(socket) == 0)
 			((network_event_t)network->writeed_callback)(network, socket);
 	}
-
 	return 0;
 }
 
-void network_eventctl(network_t * network, int cmd, void * parm)
+/*******************************************************************************
+** 版  本： v 1.1     
+** 功  能： 配置网络模块
+** 入  参： network - 网络模块指针
+			cmd		- 命令字
+			parm	- 参数
+           
+** 返回值：                             
+** 备  注： 
+*******************************************************************************/
+void network_config(network_t * network, network_config_t cmd, void * parm)
 {
 	switch(cmd)
 	{
-	case 1:
+	case NET_SET_RECV_EVENT:
 		network->arrived_callback = parm;
 		break;
-	case 2:
+	case NET_SET_SEND_EVENT:
 		network->writeed_callback = parm;
 		break;
 	}
