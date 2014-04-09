@@ -1,0 +1,217 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+BASE_64_H	.\base64.h	2;"	d
+DATA	.\list.h	/^typedef void * DATA;$/;"	t
+DATA_CBK	.\list.h	/^typedef int (*DATA_CBK)(int id, LNDE node, void * parm);$/;"	t
+DNS_COM_DATA	.\dns.h	/^}DNS_COM_DATA, dns_t;$/;"	t	typeref:struct:_dns_t_
+DNS_H	.\dns.h	13;"	d
+LIST	.\list.h	/^}LIST, linked_list_t;$/;"	t	typeref:struct:_linked_list_
+LIST_H	.\list.h	12;"	d
+LIST_NODE	.\list.h	/^}LIST_NODE, * LNDE, linked_list_node_t;$/;"	t	typeref:struct:_linked_list_node_t_
+LNDE	.\list.h	/^}LIST_NODE, * LNDE, linked_list_node_t;$/;"	t	typeref:struct:_linked_list_node_t_
+NETWORK_H	.\network.h	65;"	d
+NET_SET_RECV_EVENT	.\network.h	/^	NET_SET_RECV_EVENT,$/;"	e	enum:network_config_t
+NET_SET_SEND_EVENT	.\network.h	/^	NET_SET_SEND_EVENT,$/;"	e	enum:network_config_t
+QUEUE_H	.\queue.h	2;"	d
+STR_API_H	.\strapi.h	2;"	d
+URL_H	.\url.h	12;"	d
+__anon1::buf	.\url.h	/^	char * buf;$/;"	m	struct:__anon1	access:public
+__anon1::file	.\url.h	/^	char * file;$/;"	m	struct:__anon1	access:public
+__anon1::host	.\url.h	/^	char * host;$/;"	m	struct:__anon1	access:public
+__anon1::port	.\url.h	/^	int    port;$/;"	m	struct:__anon1	access:public
+__anon1::protocol	.\url.h	/^	char * protocol;$/;"	m	struct:__anon1	access:public
+_dns_node_	.\dns.h	/^typedef struct _dns_node_$/;"	s
+_dns_node_::host	.\dns.h	/^	char * host;$/;"	m	struct:_dns_node_	access:public
+_dns_node_::ip	.\dns.h	/^	unsigned long ip;$/;"	m	struct:_dns_node_	access:public
+_dns_t_	.\dns.h	/^typedef struct _dns_t_$/;"	s
+_dns_t_::list	.\dns.h	/^	linked_list_t * list;$/;"	m	struct:_dns_t_	access:public
+_dns_t_::max_size	.\dns.h	/^	int max_size;$/;"	m	struct:_dns_t_	access:public
+_linked_list_	.\list.h	/^typedef struct _linked_list_$/;"	s
+_linked_list_::head	.\list.h	/^	struct _linked_list_node_t_ * head;$/;"	m	struct:_linked_list_	typeref:struct:_linked_list_::_linked_list_node_t_	access:public
+_linked_list_::last	.\list.h	/^	struct _linked_list_node_t_ * last;$/;"	m	struct:_linked_list_	typeref:struct:_linked_list_::_linked_list_node_t_	access:public
+_linked_list_::size	.\list.h	/^	int size;$/;"	m	struct:_linked_list_	access:public
+_linked_list_node_t_	.\list.h	/^typedef struct _linked_list_node_t_$/;"	s
+_linked_list_node_t_::d	.\list.h	/^	DATA d;$/;"	m	struct:_linked_list_node_t_	access:public
+_linked_list_node_t_::next	.\list.h	/^	struct _linked_list_node_t_ * next;$/;"	m	struct:_linked_list_node_t_	typeref:struct:_linked_list_node_t_::_linked_list_node_t_	access:public
+_linked_list_node_t_::prev	.\list.h	/^	struct _linked_list_node_t_ * prev;$/;"	m	struct:_linked_list_node_t_	typeref:struct:_linked_list_node_t_::_linked_list_node_t_	access:public
+_net_socket_	.\network.h	/^typedef struct _net_socket_$/;"	s
+_net_socket_::dsp	.\network.h	/^	int dsp;$/;"	m	struct:_net_socket_	access:public
+_net_socket_::linked_node	.\network.h	/^	linked_list_node_t * linked_node;$/;"	m	struct:_net_socket_	access:public
+_net_socket_::network	.\network.h	/^	network_t * network;$/;"	m	struct:_net_socket_	access:public
+_net_socket_::rdque	.\network.h	/^	queue_t rdque;$/;"	m	struct:_net_socket_	access:public
+_net_socket_::statu	.\network.h	/^	int statu;$/;"	m	struct:_net_socket_	access:public
+_net_socket_::user_data	.\network.h	/^	void * user_data;$/;"	m	struct:_net_socket_	access:public
+_net_socket_::wtque	.\network.h	/^	queue_t wtque;$/;"	m	struct:_net_socket_	access:public
+_network_	.\network.h	/^typedef struct _network_$/;"	s
+_network_::arrived_callback	.\network.h	/^	void * arrived_callback;$/;"	m	struct:_network_	access:public
+_network_::dns	.\network.h	/^	dns_t * dns;$/;"	m	struct:_network_	access:public
+_network_::dsp	.\network.h	/^	int dsp;$/;"	m	struct:_network_	access:public
+_network_::net_sockets	.\network.h	/^	linked_list_t * net_sockets;$/;"	m	struct:_network_	access:public
+_network_::writeed_callback	.\network.h	/^	void * writeed_callback;$/;"	m	struct:_network_	access:public
+_queue_	.\queue.h	/^typedef struct _queue_$/;"	s
+_queue_::grow_step	.\queue.h	/^	int grow_step;$/;"	m	struct:_queue_	access:public
+_queue_::head	.\queue.h	/^	char * head;$/;"	m	struct:_queue_	access:public
+_queue_::max_size	.\queue.h	/^	int max_size;$/;"	m	struct:_queue_	access:public
+_queue_::rear	.\queue.h	/^	char * rear;$/;"	m	struct:_queue_	access:public
+arrived_callback	.\network.h	/^	void * arrived_callback;$/;"	m	struct:_network_	access:public
+basecode	.\base64.cpp	/^char basecode( int c)$/;"	f	signature:( int c)
+basecode	.\base64.cpp	/^extern char basecode( int c);$/;"	p	file:	signature:( int c)
+buf	.\url.h	/^	char * buf;$/;"	m	struct:__anon1	access:public
+d	.\list.h	/^	DATA d;$/;"	m	struct:_linked_list_node_t_	access:public
+decode	.\base64.cpp	/^void decode( char *ostr, char *istr)$/;"	f	signature:( char *ostr, char *istr)
+decode	.\base64.h	/^extern void decode( char *ostr, char *istr);$/;"	p	signature:( char *ostr, char *istr)
+dns	.\network.h	/^	dns_t * dns;$/;"	m	struct:_network_	access:public
+dns_create	.\dns.cpp	/^void dns_create(dns_t ** dns, int size)$/;"	f	signature:(dns_t ** dns, int size)
+dns_create	.\dns.h	/^void dns_create(dns_t ** dns, int size);$/;"	p	signature:(dns_t ** dns, int size)
+dns_delete	.\dns.cpp	/^void dns_delete(dns_t *  dns)$/;"	f	signature:(dns_t * dns)
+dns_delete	.\dns.h	/^void dns_delete(dns_t * dns);$/;"	p	signature:(dns_t * dns)
+dns_host_ip	.\dns.cpp	/^unsigned long dns_host_ip(dns_t * dns, const char * host)$/;"	f	signature:(dns_t * dns, const char * host)
+dns_host_ip	.\dns.h	/^unsigned long dns_host_ip(dns_t * dns, const char * host);$/;"	p	signature:(dns_t * dns, const char * host)
+dns_node_t	.\dns.h	/^}dns_node_t;$/;"	t	typeref:struct:_dns_node_
+dns_t	.\dns.h	/^}DNS_COM_DATA, dns_t;$/;"	t	typeref:struct:_dns_t_
+dsp	.\network.h	/^	int dsp;$/;"	m	struct:_net_socket_	access:public
+dsp	.\network.h	/^	int dsp;$/;"	m	struct:_network_	access:public
+encode	.\base64.cpp	/^void encode( char *ostr, char *istr)$/;"	f	signature:( char *ostr, char *istr)
+encode	.\base64.h	/^extern void encode( char *ostr, char *istr);$/;"	p	signature:( char *ostr, char *istr)
+file	.\url.h	/^	char * file;$/;"	m	struct:__anon1	access:public
+getsubstr	.\strapi.cpp	/^const char * getsubstr( char * sdest, int nsize, const char * ssrc, char cflag)$/;"	f	signature:( char * sdest, int nsize, const char * ssrc, char cflag)
+getsubstr	.\strapi.h	/^const char * getsubstr( char * sdest, int nsize, const char * ssrc, char cflag);$/;"	p	signature:( char * sdest, int nsize, const char * ssrc, char cflag)
+grow_step	.\queue.h	/^	int grow_step;$/;"	m	struct:_queue_	access:public
+head	.\list.h	/^	struct _linked_list_node_t_ * head;$/;"	m	struct:_linked_list_	typeref:struct:_linked_list_::_linked_list_node_t_	access:public
+head	.\queue.h	/^	char * head;$/;"	m	struct:_queue_	access:public
+host	.\dns.h	/^	char * host;$/;"	m	struct:_dns_node_	access:public
+host	.\url.h	/^	char * host;$/;"	m	struct:__anon1	access:public
+ip	.\dns.h	/^	unsigned long ip;$/;"	m	struct:_dns_node_	access:public
+last	.\list.h	/^	struct _linked_list_node_t_ * last;$/;"	m	struct:_linked_list_	typeref:struct:_linked_list_::_linked_list_node_t_	access:public
+linked_list_create	.\list.cpp	/^void linked_list_create(linked_list_t ** list)$/;"	f	signature:(linked_list_t ** list)
+linked_list_create	.\list.h	/^void   linked_list_create(linked_list_t ** list);$/;"	p	signature:(linked_list_t ** list)
+linked_list_data	.\list.cpp	/^void * linked_list_data(linked_list_node_t * node)$/;"	f	signature:(linked_list_node_t * node)
+linked_list_data	.\list.h	/^void * linked_list_data(linked_list_node_t * node);$/;"	p	signature:(linked_list_node_t * node)
+linked_list_delete	.\list.cpp	/^void linked_list_delete(linked_list_t * list)$/;"	f	signature:(linked_list_t * list)
+linked_list_delete	.\list.h	/^void   linked_list_delete(linked_list_t * list);$/;"	p	signature:(linked_list_t * list)
+linked_list_first	.\list.cpp	/^linked_list_node_t * linked_list_first(linked_list_t * list)$/;"	f	signature:(linked_list_t * list)
+linked_list_first	.\list.h	/^linked_list_node_t * linked_list_first(linked_list_t * list);$/;"	p	signature:(linked_list_t * list)
+linked_list_insert	.\list.cpp	/^linked_list_node_t * linked_list_insert(linked_list_t * list, $/;"	f	signature:(linked_list_t * list, linked_list_node_t * node, void * data)
+linked_list_insert	.\list.h	/^linked_list_node_t * linked_list_insert(linked_list_t * list, $/;"	p	signature:(linked_list_t * list, linked_list_node_t * node, void * data)
+linked_list_last	.\list.cpp	/^linked_list_node_t * linked_list_last (linked_list_t * list)$/;"	f	signature:(linked_list_t * list)
+linked_list_last	.\list.h	/^linked_list_node_t * linked_list_last (linked_list_t * list);$/;"	p	signature:(linked_list_t * list)
+linked_list_next	.\list.cpp	/^linked_list_node_t * linked_list_next (linked_list_node_t * node)$/;"	f	signature:(linked_list_node_t * node)
+linked_list_next	.\list.h	/^linked_list_node_t * linked_list_next (linked_list_node_t * node);$/;"	p	signature:(linked_list_node_t * node)
+linked_list_node_t	.\list.h	/^}LIST_NODE, * LNDE, linked_list_node_t;$/;"	t	typeref:struct:_linked_list_node_t_
+linked_list_previous	.\list.cpp	/^linked_list_node_t * linked_list_previous(linked_list_node_t * node)$/;"	f	signature:(linked_list_node_t * node)
+linked_list_previous	.\list.h	/^linked_list_node_t * linked_list_previous(linked_list_node_t * node);$/;"	p	signature:(linked_list_node_t * node)
+linked_list_remove	.\list.cpp	/^linked_list_node_t * linked_list_remove(linked_list_t * list, $/;"	f	signature:(linked_list_t * list, linked_list_node_t * node)
+linked_list_remove	.\list.h	/^linked_list_node_t * linked_list_remove(linked_list_t * list, $/;"	p	signature:(linked_list_t * list, linked_list_node_t * node)
+linked_list_size	.\list.cpp	/^int linked_list_size(linked_list_t * list)$/;"	f	signature:(linked_list_t * list)
+linked_list_size	.\list.h	/^int    linked_list_size(linked_list_t * list);$/;"	p	signature:(linked_list_t * list)
+linked_list_t	.\list.h	/^}LIST, linked_list_t;$/;"	t	typeref:struct:_linked_list_
+linked_node	.\network.h	/^	linked_list_node_t * linked_node;$/;"	m	struct:_net_socket_	access:public
+list	.\dns.h	/^	linked_list_t * list;$/;"	m	struct:_dns_t_	access:public
+list_append	.\list.cpp	/^void list_append(LIST * list, DATA data)$/;"	f	signature:(LIST * list, DATA data)
+list_append	.\list.h	/^void list_append (LIST * list, DATA data);$/;"	p	signature:(LIST * list, DATA data)
+list_dataat	.\list.cpp	/^DATA list_dataat (LIST * list, int position)$/;"	f	signature:(LIST * list, int position)
+list_dataat	.\list.h	/^DATA list_dataat (LIST * list, int position);$/;"	p	signature:(LIST * list, int position)
+list_datacmp	.\list.cpp	/^int list_datacmp(DATA des, DATA src)$/;"	f	signature:(DATA des, DATA src)
+list_delete	.\list.cpp	/^void list_delete(LIST * list, DATA_CBK data_free, void * parm)$/;"	f	signature:(LIST * list, DATA_CBK data_free, void * parm)
+list_delete	.\list.h	/^void list_delete (LIST * list, DATA_CBK data_free, void * parm);$/;"	p	signature:(LIST * list, DATA_CBK data_free, void * parm)
+list_delnde	.\list.cpp	/^void list_delnde (LNDE node, DATA_CBK data_free, void * parm)$/;"	f	signature:(LNDE node, DATA_CBK data_free, void * parm)
+list_delnde	.\list.h	/^void list_delnde (LNDE node, DATA_CBK data_free, void * parm);$/;"	p	signature:(LNDE node, DATA_CBK data_free, void * parm)
+list_exchange	.\list.cpp	/^void list_exchange(LIST * list, LNDE enode, LNDE node)$/;"	f	signature:(LIST * list, LNDE enode, LNDE node)
+list_exchange	.\list.h	/^void list_exchange(LIST * list, LNDE enode, LNDE node);$/;"	p	signature:(LIST * list, LNDE enode, LNDE node)
+list_firstd	.\list.cpp	/^LNDE list_firstd (LIST * list, DATA data)$/;"	f	signature:(LIST * list, DATA data)
+list_firstd	.\list.h	/^LNDE list_firstd (LIST * list, DATA data);$/;"	p	signature:(LIST * list, DATA data)
+list_firstl2	.\list.cpp	/^int  list_firstl2(LIST * list, DATA data)$/;"	f	signature:(LIST * list, DATA data)
+list_firstl2	.\list.h	/^int  list_firstl2(LIST * list, DATA data);$/;"	p	signature:(LIST * list, DATA data)
+list_insert	.\list.cpp	/^void list_insert (LIST * list, LNDE prnode, DATA data)$/;"	f	signature:(LIST * list, LNDE prnode, DATA data)
+list_insert	.\list.h	/^void list_insert(LIST * list, LNDE prnode, DATA data);$/;"	p	signature:(LIST * list, LNDE prnode, DATA data)
+list_insertl2	.\list.cpp	/^void list_insertl2 (LIST * list, DATA data, int position)$/;"	f	signature:(LIST * list, DATA data, int position)
+list_insertl2	.\list.h	/^void list_insertl2(LIST * list, DATA data, int position);$/;"	p	signature:(LIST * list, DATA data, int position)
+list_new	.\list.cpp	/^LIST * list_new(void)$/;"	f	signature:(void)
+list_new	.\list.h	/^linked_list_t * list_new  (void);$/;"	p	signature:(void)
+list_nodeat	.\list.cpp	/^LNDE list_nodeat (LIST * list, int position)$/;"	f	signature:(LIST * list, int position)
+list_nodeat	.\list.h	/^LNDE list_nodeat (LIST * list, int position);$/;"	p	signature:(LIST * list, int position)
+list_position	.\list.cpp	/^int list_position(LIST * list, LNDE node)$/;"	f	signature:(LIST * list, LNDE node)
+list_position	.\list.h	/^int  list_position(LIST * list, LNDE node);$/;"	p	signature:(LIST * list, LNDE node)
+list_prview	.\list.cpp	/^LNDE list_prview(LIST * list, DATA_CBK data_view, void * parm)$/;"	f	signature:(LIST * list, DATA_CBK data_view, void * parm)
+list_prview	.\list.h	/^LNDE list_prview (LIST * list, DATA_CBK data_view, void * parm);$/;"	p	signature:(LIST * list, DATA_CBK data_view, void * parm)
+list_remove	.\list.cpp	/^void list_remove (LIST * list, int position)$/;"	f	signature:(LIST * list, int position)
+list_remove	.\list.h	/^void list_remove (LIST * list, int position);$/;"	p	signature:(LIST * list, int position)
+list_removel2	.\list.cpp	/^LNDE list_removel2(LIST * list, LNDE node)$/;"	f	signature:(LIST * list, LNDE node)
+list_removel2	.\list.h	/^LNDE list_removel2(LIST * list, LNDE node);$/;"	p	signature:(LIST * list, LNDE node)
+ltrimchr	.\strapi.cpp	/^char * ltrimchr( char *str, char cflag )$/;"	f	signature:( char *str, char cflag )
+ltrimchr	.\strapi.h	/^char * ltrimchr( char *str, char cflag );$/;"	p	signature:( char *str, char cflag )
+max_size	.\dns.h	/^	int max_size;$/;"	m	struct:_dns_t_	access:public
+max_size	.\queue.h	/^	int max_size;$/;"	m	struct:_queue_	access:public
+net_socket_close	.\network.cpp	/^void net_socket_close(net_socket_t * socket)$/;"	f	signature:(net_socket_t * socket)
+net_socket_close	.\network.h	/^void   net_socket_close(net_socket_t * socket);$/;"	p	signature:(net_socket_t * socket)
+net_socket_data	.\network.cpp	/^char * net_socket_data(net_socket_t * socket)$/;"	f	signature:(net_socket_t * socket)
+net_socket_data	.\network.h	/^char * net_socket_data (net_socket_t * socket);$/;"	p	signature:(net_socket_t * socket)
+net_socket_get_user_data	.\network.cpp	/^void * net_socket_get_user_data(net_socket_t * socket)$/;"	f	signature:(net_socket_t * socket)
+net_socket_get_user_data	.\network.h	/^void * net_socket_get_user_data(net_socket_t * socket);$/;"	p	signature:(net_socket_t * socket)
+net_socket_pop	.\network.cpp	/^char * net_socket_pop (net_socket_t * socket, int bytes)$/;"	f	signature:(net_socket_t * socket, int bytes)
+net_socket_pop	.\network.h	/^char * net_socket_pop  (net_socket_t * socket, int bytes);$/;"	p	signature:(net_socket_t * socket, int bytes)
+net_socket_set_user_data	.\network.cpp	/^void net_socket_set_user_data(net_socket_t * socket, void * d)$/;"	f	signature:(net_socket_t * socket, void * d)
+net_socket_set_user_data	.\network.h	/^void   net_socket_set_user_data(net_socket_t * socket, void * d);$/;"	p	signature:(net_socket_t * socket, void * d)
+net_socket_size	.\network.cpp	/^int net_socket_size(net_socket_t * socket)$/;"	f	signature:(net_socket_t * socket)
+net_socket_size	.\network.h	/^int    net_socket_size (net_socket_t * socket);$/;"	p	signature:(net_socket_t * socket)
+net_socket_statu	.\network.cpp	/^int net_socket_statu(net_socket_t * socket)$/;"	f	signature:(net_socket_t * socket)
+net_socket_statu	.\network.h	/^int    net_socket_statu(net_socket_t * socket);$/;"	p	signature:(net_socket_t * socket)
+net_socket_t	.\network.h	/^}net_socket_t;$/;"	t	typeref:struct:_net_socket_
+net_socket_write	.\network.cpp	/^int net_socket_write(net_socket_t * socket, const char * buf, int size)$/;"	f	signature:(net_socket_t * socket, const char * buf, int size)
+net_socket_write	.\network.h	/^int    net_socket_write(net_socket_t * socket, const char * buf, int size);$/;"	p	signature:(net_socket_t * socket, const char * buf, int size)
+net_sockets	.\network.h	/^	linked_list_t * net_sockets;$/;"	m	struct:_network_	access:public
+network	.\network.h	/^	network_t * network;$/;"	m	struct:_net_socket_	access:public
+network_config	.\network.cpp	/^void network_config(network_t * network, network_config_t cmd, void * parm)$/;"	f	signature:(network_t * network, network_config_t cmd, void * parm)
+network_config	.\network.h	/^void           network_config (network_t * network, network_config_t cmd, $/;"	p	signature:(network_t * network, network_config_t cmd, void * parm)
+network_config_t	.\network.h	/^enum network_config_t$/;"	g
+network_connect	.\network.cpp	/^net_socket_t * network_connect(network_t * network, const char * host, int port)$/;"	f	signature:(network_t * network, const char * host, int port)
+network_connect	.\network.h	/^net_socket_t * network_connect(network_t * network, const char * host, int port);$/;"	p	signature:(network_t * network, const char * host, int port)
+network_create	.\network.cpp	/^network_t * network_create()$/;"	f	signature:()
+network_create	.\network.h	/^network_t *    network_create (); $/;"	p	signature:()
+network_event_t	.\network.cpp	/^typedef void (*network_event_t)(struct _network_ * network, struct _net_socket_ * netsocket);$/;"	t	file:
+network_free	.\network.cpp	/^void network_free(network_t * network)$/;"	f	signature:(network_t * network)
+network_free	.\network.h	/^void           network_free   (network_t * network);$/;"	p	signature:(network_t * network)
+network_procmsg	.\network.cpp	/^int network_procmsg(network_t * network)$/;"	f	signature:(network_t * network)
+network_procmsg	.\network.h	/^int            network_procmsg(network_t * network);$/;"	p	signature:(network_t * network)
+network_t	.\network.h	/^}network_t;$/;"	t	typeref:struct:_network_
+next	.\list.h	/^	struct _linked_list_node_t_ * next;$/;"	m	struct:_linked_list_node_t_	typeref:struct:_linked_list_node_t_::_linked_list_node_t_	access:public
+port	.\url.h	/^	int    port;$/;"	m	struct:__anon1	access:public
+prev	.\list.h	/^	struct _linked_list_node_t_ * prev;$/;"	m	struct:_linked_list_node_t_	typeref:struct:_linked_list_node_t_::_linked_list_node_t_	access:public
+protocol	.\url.h	/^	char * protocol;$/;"	m	struct:__anon1	access:public
+queue_data	.\queue.cpp	/^char * queue_data(queue_t * q)$/;"	f	signature:(queue_t * q)
+queue_data	.\queue.h	/^char * queue_data(queue_t * q);$/;"	p	signature:(queue_t * q)
+queue_dequeue	.\queue.cpp	/^int queue_dequeue(queue_t * q, int size)$/;"	f	signature:(queue_t * q, int size)
+queue_dequeue	.\queue.h	/^int queue_dequeue(queue_t * q, int size);$/;"	p	signature:(queue_t * q, int size)
+queue_destroy	.\queue.cpp	/^int queue_destroy(queue_t * q)$/;"	f	signature:(queue_t * q)
+queue_destroy	.\queue.h	/^int queue_destroy(queue_t * q);$/;"	p	signature:(queue_t * q)
+queue_enqueue	.\queue.cpp	/^int queue_enqueue(queue_t * q, const char * buf, int size)$/;"	f	signature:(queue_t * q, const char * buf, int size)
+queue_enqueue	.\queue.h	/^int queue_enqueue(queue_t * q, const char * buf, int size);$/;"	p	signature:(queue_t * q, const char * buf, int size)
+queue_init	.\queue.cpp	/^int queue_init(queue_t * q, int maxsize, int grow_step)$/;"	f	signature:(queue_t * q, int maxsize, int grow_step)
+queue_init	.\queue.h	/^int queue_init(queue_t * q, int maxsize, int grow_step);$/;"	p	signature:(queue_t * q, int maxsize, int grow_step)
+queue_last	.\queue.cpp	/^char * queue_last(queue_t * q)$/;"	f	signature:(queue_t * q)
+queue_last	.\queue.h	/^char * queue_last(queue_t * q);$/;"	p	signature:(queue_t * q)
+queue_left	.\queue.cpp	/^int queue_left(queue_t * q)$/;"	f	signature:(queue_t * q)
+queue_left	.\queue.h	/^int queue_left(queue_t * q);$/;"	p	signature:(queue_t * q)
+queue_size	.\queue.cpp	/^int queue_size(queue_t * q)$/;"	f	signature:(queue_t * q)
+queue_size	.\queue.h	/^int queue_size(queue_t * q);$/;"	p	signature:(queue_t * q)
+queue_t	.\queue.h	/^}queue_t;$/;"	t	typeref:struct:_queue_
+rdque	.\network.h	/^	queue_t rdque;$/;"	m	struct:_net_socket_	access:public
+rear	.\queue.h	/^	char * rear;$/;"	m	struct:_queue_	access:public
+rtrimchr	.\strapi.cpp	/^char * rtrimchr( char *str, char cflag )$/;"	f	signature:( char *str, char cflag )
+rtrimchr	.\strapi.h	/^char * rtrimchr( char *str, char cflag );$/;"	p	signature:( char *str, char cflag )
+size	.\list.h	/^	int size;$/;"	m	struct:_linked_list_	access:public
+statu	.\network.h	/^	int statu;$/;"	m	struct:_net_socket_	access:public
+unbasecode	.\base64.cpp	/^char unbasecode( char c)$/;"	f	signature:( char c)
+unbasecode	.\base64.cpp	/^extern char unbasecode( char c);$/;"	p	file:	signature:( char c)
+url_create	.\url.cpp	/^void url_create(url_t ** url, const char * urlstr)$/;"	f	signature:(url_t ** url, const char * urlstr)
+url_create	.\url.h	/^void url_create(url_t ** url, const char * urlstr);$/;"	p	signature:(url_t ** url, const char * urlstr)
+url_delete	.\url.cpp	/^void url_delete(url_t * url)$/;"	f	signature:(url_t * url)
+url_delete	.\url.h	/^void url_delete(url_t * url);$/;"	p	signature:(url_t * url)
+url_t	.\url.h	/^}url_t;$/;"	t	typeref:struct:__anon1
+user_data	.\network.h	/^	void * user_data;$/;"	m	struct:_net_socket_	access:public
+writeed_callback	.\network.h	/^	void * writeed_callback;$/;"	m	struct:_network_	access:public
+wtque	.\network.h	/^	queue_t wtque;$/;"	m	struct:_net_socket_	access:public

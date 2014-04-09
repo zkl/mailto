@@ -3,27 +3,38 @@
 #include <stdio.h>
 #include "network.h"
 
-typedef void (*network_event_t)(struct _network_ * network, struct _net_socket_ * netsocket);
+typedef void (*network_event_t)(struct _network_ * network, 
+	struct _net_socket_ * netsocket);
 
 /*******************************************************************************
 ** 版  本： v 1.1     
 ** 功  能： 创建网络模块
 ** 入  参： 
 ** 返回值：       
-** 备  注： 
+** 备  注： 创建的网络模块使用完后需要调用network_free进行释放
 *******************************************************************************/
-void network_create(network_t ** network)
+network_t * network_create()
 {
-	*network = (network_t *)malloc(sizeof(network_t));
-	memset(*network, 0, sizeof(network_t));
+	network_t * network = (network_t *)malloc(sizeof(network_t));
+	memset(network, 0, sizeof(network_t));
 
-	dns_create(&(*network)->dns, 20);
-	linked_list_create(&(*network)->net_sockets);
 
-	(*network)->dsp = 0;
+	dns_create(&(network)->dns, 20);
+	linked_list_create(&(network)->net_sockets);
+
+	network->dsp = 0;
+
+	return network;
 }
 
-void network_delete(network_t * network)
+/*******************************************************************************
+** 版  本： v 1.1     
+** 功  能： 释放网络模块数据和资源
+** 入  参： network - 网络模块指针
+** 返回值：                             
+** 备  注： 
+*******************************************************************************/
+void network_free(network_t * network)
 {
 	linked_list_node_t * list_node;
 	net_socket_t * socket;
@@ -32,8 +43,8 @@ void network_delete(network_t * network)
 	{
 		socket = (net_socket_t *)linked_list_data(list_node);
 
-		queue_destroy(&socket->rdque);
-		queue_destroy(&socket->wtque);
+		queue_free(socket->rdque);
+		queue_free(socket->wtque);
 
 		free(socket);
 	}
@@ -78,10 +89,11 @@ net_socket_t * network_connect(network_t * network, const char * host, int port)
 	net_socket->dsp = fd;
 	net_socket->statu = 1;
 	net_socket->network = network;
-	net_socket->linked_node = linked_list_insert(network->net_sockets, 0, net_socket);
+	net_socket->linked_node = linked_list_insert(network->net_sockets, 0,
+		net_socket);
 
-	queue_init(&net_socket->rdque, 8192, 1024);
-	queue_init(&net_socket->wtque, 2048, 1024);
+	net_socket->rdque = queue_create(8192, 1024);
+	net_socket->wtque = queue_create(8192, 1024);
 
 	return net_socket;
 }
@@ -95,7 +107,7 @@ net_socket_t * network_connect(network_t * network, const char * host, int port)
 *******************************************************************************/
 int net_socket_size(net_socket_t * socket)
 {
-	return queue_size(&socket->rdque);
+	return queue_size(socket->rdque);
 }
 
 /*******************************************************************************
@@ -107,7 +119,7 @@ int net_socket_size(net_socket_t * socket)
 *******************************************************************************/
 char * net_socket_data(net_socket_t * socket)
 {
-	return queue_data(&socket->rdque);
+	return queue_data(socket->rdque);
 }
 
 /*******************************************************************************
@@ -120,9 +132,10 @@ char * net_socket_data(net_socket_t * socket)
 *******************************************************************************/
 char * net_socket_pop (net_socket_t * socket, int bytes)
 {
-	bytes = bytes<=queue_size(&socket->rdque)?bytes:queue_size(&socket->rdque);
-	queue_dequeue(&socket->rdque, bytes);
-	return queue_data(&socket->rdque);
+	bytes = bytes<=queue_size(socket->rdque)?bytes:queue_size(socket->rdque);
+	queue_dequeue(socket->rdque, bytes);
+
+	return queue_data(socket->rdque);
 }
 
 /*******************************************************************************
@@ -136,7 +149,7 @@ char * net_socket_pop (net_socket_t * socket, int bytes)
 *******************************************************************************/
 int net_socket_write(net_socket_t * socket, const char * buf, int size)
 {
-	queue_t * write_queue = &socket->wtque;
+	queue_t * write_queue = socket->wtque;
 
 	queue_enqueue(write_queue, buf, size);
 
@@ -179,16 +192,17 @@ int net_socket_statu(net_socket_t * socket)
 ** 版  本： v 1.1     
 ** 功  能： 关闭网络连接，并且释放网络资源
 ** 入  参： socket - 网络模块指针
-
 ** 返回值： void
 ** 备  注： 网络模块被关闭后，指向网络模块的指针将指向未知数据
 *******************************************************************************/
 void net_socket_close(net_socket_t * socket)
 {
 	closesocket(socket->dsp);
-	queue_destroy(&socket->rdque);
-	queue_destroy(&socket->wtque);
+
+	queue_free(socket->rdque);
+	queue_free(socket->wtque);
 	linked_list_remove(socket->network->net_sockets, socket->linked_node);
+
 	free(socket);
 }
 
@@ -216,7 +230,6 @@ void * net_socket_get_user_data(net_socket_t * socket)
 {
 	return socket->user_data;
 }
-
 
 /*******************************************************************************
 ** 版  本： v 1.1     
@@ -258,11 +271,11 @@ int network_procmsg(network_t * network)
 	
 		if(FD_ISSET(socket->dsp, &fd_read))
 		{
-			ret = recv(socket->dsp, queue_last(&socket->rdque), 
-				queue_left(&socket->rdque), 0);
+			ret = recv(socket->dsp, queue_last(socket->rdque), 
+				queue_left(socket->rdque), 0);
 
 			if(ret > 0)
-				queue_enqueue(&socket->rdque, 0, ret);
+				queue_enqueue(socket->rdque, 0, ret);
 
 			if(ret <= 0)
 				socket->statu = ret;

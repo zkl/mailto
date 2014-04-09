@@ -64,7 +64,7 @@ void * net_socket_get_user_data(net_socket_t * socket);
 #ifndef NETWORK_H
 #define NETWORK_H
 
-#include <windows.h>
+#include <WINDOWS.H>
 #include "dns.h"
 #include "queue.h"
 #include "list.h"
@@ -86,8 +86,8 @@ typedef struct _net_socket_
 	int dsp;
 	int statu;
 	network_t * network;
-	queue_t rdque;
-	queue_t wtque;
+	queue_t * rdque;
+	queue_t * wtque;
 	linked_list_node_t * linked_node;
 	void * user_data;
 }net_socket_t;
@@ -99,11 +99,12 @@ enum network_config_t
 	NET_SET_SEND_EVENT,
 };
 
-void           network_create (network_t ** network); 
-void           network_delete (network_t * network);
+network_t *    network_create (); 
+void           network_free   (network_t * network);
 net_socket_t * network_connect(network_t * network, const char * host, int port);
 int            network_procmsg(network_t * network);
-void           network_config (network_t * network, network_config_t cmd, void * parm);
+void           network_config (network_t * network, network_config_t cmd, 
+		void * parm);
 
 int    net_socket_size (net_socket_t * socket);
 char * net_socket_data (net_socket_t * socket);

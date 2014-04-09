@@ -1,7 +1,7 @@
 #ifndef SMTP_H
 #define SMTP_H
 
-#include "module/network.h'
+#include "module/network.h"
 
 typedef struct smtp_t
 {

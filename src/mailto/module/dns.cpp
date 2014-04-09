@@ -23,7 +23,6 @@ unsigned long dns_host_ip(dns_t * dns, const char * host)
 			return dnode->ip;
 	}
 
-
 	struct hostent * hns = gethostbyname (host);
 
 	if(hns)
