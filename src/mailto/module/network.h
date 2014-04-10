@@ -90,6 +90,8 @@ typedef struct _net_socket_
 	queue_t * wtque;
 	linked_list_node_t * linked_node;
 	void * user_data;
+	void * arrived_callback;
+	void * writeed_callback;
 }net_socket_t;
 
 
@@ -101,10 +103,11 @@ enum network_config_t
 
 network_t *    network_create (); 
 void           network_free   (network_t * network);
-net_socket_t * network_connect(network_t * network, const char * host, int port);
+net_socket_t * network_connect(network_t * network, const char * host,
+					int port);
 int            network_procmsg(network_t * network);
 void           network_config (network_t * network, network_config_t cmd, 
-		void * parm);
+					void * parm);
 
 int    net_socket_size (net_socket_t * socket);
 char * net_socket_data (net_socket_t * socket);

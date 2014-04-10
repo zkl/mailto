@@ -77,7 +77,8 @@ net_socket_t * network_connect(network_t * network, const char * host, int port)
 	if(fd == INVALID_SOCKET)
 		return 0;
 
-	if( connect(fd, (struct sockaddr *)&addr, sizeof(addr)) )
+	/* connect error */
+	if(connect(fd, (struct sockaddr *)&addr, sizeof(addr)))
 		return 0;
 
 	unsigned long argp = 1;
@@ -89,6 +90,9 @@ net_socket_t * network_connect(network_t * network, const char * host, int port)
 	net_socket->dsp = fd;
 	net_socket->statu = 1;
 	net_socket->network = network;
+	net_socket->writeed_callback = network->writeed_callback;
+	net_socket->arrived_callback = network->arrived_callback;
+
 	net_socket->linked_node = linked_list_insert(network->net_sockets, 0,
 		net_socket);
 
@@ -280,13 +284,13 @@ int network_procmsg(network_t * network)
 			if(ret <= 0)
 				socket->statu = ret;
 
-			if(network->arrived_callback)
-				((network_event_t)network->arrived_callback)(network, socket);
+			if(socket->arrived_callback)
+				((network_event_t)socket->arrived_callback)(network, socket);
 		}
 
 		net_socket_write(socket, 0, 0);
-		if(network->writeed_callback && net_socket_size(socket) == 0)
-			((network_event_t)network->writeed_callback)(network, socket);
+		if(socket->writeed_callback && net_socket_size(socket) == 0)
+			((network_event_t)socket->writeed_callback)(network, socket);
 	}
 	return 0;
 }

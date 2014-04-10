@@ -61,7 +61,7 @@ flags = [
 '-I',
 '.',
 '-I',
-'module',
+'./module',
 '-isystem', 
 'C:/Program Files/Microsoft Visual Studio 9.0/VC/include',
 '-isystem', 
